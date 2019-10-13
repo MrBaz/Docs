@@ -65,7 +65,8 @@ paths:
   /landtypes:
     get:
       summary: Get Land Types
-      tags: []
+      tags:
+        - tag1
       responses: {}
 components:
   schemas: {}
