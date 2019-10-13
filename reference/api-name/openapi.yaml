@@ -1,0 +1,32 @@
+openapi: 3.0.0
+info:
+  title: API Name
+  version: '1.0'
+  description: API Description
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /procedures/bestowal:
+    post:
+      summary: create
+      tags: []
+      responses: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                LandType:
+                  type: string
+                LandName:
+                  type: string
+                LandId:
+                  type: string
+  /properties/lands/types:
+    get:
+      summary: get
+      tags: []
+      responses: {}
+components:
+  schemas: {}
