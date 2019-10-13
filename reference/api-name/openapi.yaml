@@ -8,9 +8,36 @@ servers:
 paths:
   /procedures/bestowal:
     post:
-      summary: create
+      summary: Create Procedure
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ProcedureId:
+                    type: string
+                  ProcedureNumber:
+                    type: string
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ValidationErrors:
+                    type:
+                      - string
+                      - array
+                    items:
+                      type: object
+                      properties:
+                        ErrorNumber:
+                          type: string
       requestBody:
         content:
           application/json:
@@ -23,10 +50,27 @@ paths:
                   type: string
                 LandId:
                   type: string
+              required:
+                - LandType
+                - LandName
+                - LandId
+      description: Endpoint descriion for testing
+      operationId: create op
+    parameters: []
   /properties/lands/types:
     get:
       summary: get
       tags: []
       responses: {}
+  /landtypes:
+    get:
+      summary: Get Land Types
+      tags: []
+      responses: {}
 components:
   schemas: {}
+  securitySchemes:
+    API Key - 1:
+      name: API Key
+      type: apiKey
+      in: query
